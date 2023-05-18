@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="normalize.css">
+</head>
+<body>
+    <style>
+        html {
+            box-sizing: border-box;
+        }
+        *, *::before, *::after {
+            box-sizing: inherit;
+        }
+        body {
+            font-family: sans-serif;
+        }
+        .encabezado {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            position: fixed;
+            background-color: #fff;
+        }
+        .logo {
+            margin-left: 30px;
+            color: #212A3E;
+        }
+
+        nav {
+            padding: 10px;
+            margin-right: 30px;
+        }
+        nav a {
+            margin-left: 10px;
+            text-decoration: none;
+            font-size: 20px;
+            color: #212A3E;
+        }
+        .seccion {
+            height: 100vh;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 50px;
+        }
+        .seccion1 {
+            background-color: #394867;
+        }
+        .seccion2 {
+            background-color: #212A3E;
+        }
+        .seccion3 {
+            background-color: #9BA4B5;
+        }
+        
+    </style>
+
+    <header class="encabezado">
+        <div class="logo">
+            <h1>Logo Empresa</h1>
+        </div>
+        <nav>
+            <a href="#seccion1">Nosotros</a>
+            <a href="#seccion2">Servicios</a>
+            <a href="#seccion3">Contacto</a>
+        </nav>
+    </header>
+  
+
+    <section class="seccion seccion1" id="seccion1">
+        <h2>Nosotros</h2>
+    </section>
+
+    <section class="seccion seccion2" id="seccion2">
+        <h2>Servicios</h2>
+    </section>
+
+    <section class="seccion seccion3" id="seccion3">
+        <h2>Contacto</h2>
+    </section>
+
+    <script>
+        const enlaces = document.querySelectorAll('nav a')
+
+        enlaces.forEach(enlace => {
+            enlace.addEventListener('click', e => {
+                e.preventDefault()
+
+                const seccion = document.querySelector(e.target.attributes.href.value)
+                seccion.scrollIntoView({ behavior: 'smooth' })
+            })
+        })
+    </script>
+</body>
+</html>
